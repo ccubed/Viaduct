@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ccubed/Viaduct.svg?branch=master)](https://travis-ci.org/ccubed/Viaduct)
 # Viaduct
 Viaduct is a Mu server that is meant to bridge the gap between old and new by providing interfaces to the old and new at the same time.
 
