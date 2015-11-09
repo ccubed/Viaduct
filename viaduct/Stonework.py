@@ -59,12 +59,7 @@ class Stonework:
 
     # Get the value for a key and delete the key. Remember, temporary.
     def getpair(self, key, db):
-        if db != 8:
-            return 0
-        else:
-            a = self.rc[8][2].get(key)
-            self.rc[8][2].delete(key)
-            return a
+        return self.rc[8][2].get(key)
 
     # Dump redis to disk. This is an asynchronous task.
     def redisdump(self):
