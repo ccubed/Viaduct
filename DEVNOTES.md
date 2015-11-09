@@ -4,8 +4,8 @@
 * 2 - Channels, Say, Tell, Any Communication
 * 3 - Poses
 * 4 - Stores key value pairs consisting of player name to hashid
-* 5 - Pairs to store number of mails
-* 6 - Hashes for Mail Contents
+* 5 - Hashes for Mail Contents
+* 6 -
 * 7 - 
 * 8 - Short lived Pairs
 * 9 - Reserved for Player API Keys

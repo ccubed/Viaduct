@@ -31,11 +31,8 @@ class Stonework:
 
     # Create a key value pair. These are temporary and only exist in DB 8.
     def addpair(self, key, value, db):
-        if db != 8:
-            return 0
-        else:
-            self.rc[8][2].add(key, value)
-            return 1
+        self.rc[db][2].add(key, value)
+        return 1
 
     # Get data from a hash and return it in the requested format.
     def gethash(self, hashid, data, db, return_format='json'):
