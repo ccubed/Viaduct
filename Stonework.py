@@ -3,7 +3,7 @@
 import redis, simplejson as json
 
 
-class Stonework:
+class StoneworkC:
     def __init__(self):
         self.rc = []
         for i in range(15):
