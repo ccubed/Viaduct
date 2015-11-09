@@ -21,9 +21,6 @@ class Stonework:
             if db == 2:
                 # Comms are only saved for 48 hours
                 self.rc[db][2].expire(hashid, 172800)
-            elif db == 5:
-                # Mails are kept 30 days
-                self.rc[db][5].expire(hashid, 2592000)
             elif 10 <= db < 15:
                 # The log DBs keep log entries for 4 days
                 self.rc[db][2].expire(hashid, 345600)
