@@ -8,8 +8,9 @@ if __name__ != '__main__':
 else:
     RedisConnector = StoneworkC()
     print("Stonework Testing commnecing.")
-    RedisConnector.addpair('test', 27, 8)
+    RedisConnector.addpair(1, 27, 8)
     print("Added test pair.")
-    temp = RedisConnector.getpair('test', 8)
-    print(str(temp))
-
+    temp = RedisConnector.getpair(1, 8)
+    print("Value of Pair: " + str(temp, 'utf-8'))
+    print("Closing")
+    RedisConnector.killkey(1, 8)
