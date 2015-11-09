@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bfdb7dc-a897-4dd2-9ba0-ead80de1b054" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DEVNOTES.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/viaduct/Stonework.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/viaduct/TelHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DEVNOTES.md" afterPath="$PROJECT_DIR$/DEVNOTES.md" />
     </list>
     <ignored path="Viaduct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,14 +36,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DEVNOTES.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DEVNOTES.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DEVNOTES.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.821429">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.40816328">
+              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -94,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TelHandler.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TelHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/viaduct/TelHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7564935">
+            <state vertical-scroll-proportion="0.0">
               <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#118#168#0" expanded="true" />
@@ -130,8 +127,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/viaduct/Stonework.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/DEVNOTES.md" />
         <option value="$PROJECT_DIR$/viaduct/TelHandler.py" />
+        <option value="$PROJECT_DIR$/DEVNOTES.md" />
       </list>
     </option>
   </component>
@@ -486,24 +483,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/viaduct/TelHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#118#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DEVNOTES.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.821429">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.40816328">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/viaduct/TelHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7564935">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="e#118#168#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
