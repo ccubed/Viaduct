@@ -2,6 +2,8 @@
 [![docs](https://readthedocs.org/projects/viaduct/badge/?version=latest)](http://viaduct.rtfd.org)
 [![Join the chat at https://gitter.im/ccubed/Viaduct](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ccubed/Viaduct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # Viaduct
+
+[![Join the chat at https://gitter.im/ccubed/Viaduct](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ccubed/Viaduct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Viaduct is a Mu server that is meant to bridge the gap between old and new by providing interfaces to the old and new at the same time.
 
 It does this by running the old and new under a single point of entry and using a unified message dispatcher to communicate changes across all the channels.
