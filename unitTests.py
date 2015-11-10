@@ -81,7 +81,7 @@ class WebUnits(unittest.TestCase):
     def test_apiTest(self):
         value = redis.StrictRedis(host='localhost',port=6379,db=8)
         value.set('test',22)
-        connection = socket.create_conection(('127.0.0.1',8443))
+        connection = socket.create_connection(('127.0.0.1',8443))
         connection.sendall('GET /api/pair/test')
         data = connection.recv(4096)
         value.expire('test',8)
