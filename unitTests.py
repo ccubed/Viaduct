@@ -3,6 +3,10 @@
 import unittest
 from Backend import *
 import simplejson as json
+from Web import *
+from gevent import pywsgi
+from gevent import socket
+import redis
 
 class StoneworkUnits(unittest.TestCase):
 
@@ -55,3 +59,29 @@ class StoneworkUnits(unittest.TestCase):
 
     def test_dump(self):
         self.Stoneref.redisdump()
+        
+    def test_autoExpire2(self):
+        self.Stoneref.addhash(1025, 1, 2)
+    
+    def test_autoExpire11(self):
+        self.Stoneref.addhash(1026, 1, 11)
+        
+    def test_autoExpire15(self):
+        self.Stoneref.addhash(1027, 1, 15)
+
+class WebUnits(unittest.TestCase):
+    
+    @classmethod
+    def setUpClass(cls):
+        self.server = Webserver(Stonework())
+        self.instance = pywsgi.WSGIServer(('0.0.0.0',8443), self.server.responseHandler)
+        self.instance.start()
+        
+    def apiTest(self):
+        value = redis.StrictRedis(host='localhost',port=6379,db=8)
+        value.set('test',22)
+        connection = socket.create_conection(('127.0.0.1',8443))
+        connection.sendall('GET /api/pair/test')
+        data = connection.recv(4096)
+        value.expire('test',8)
+        assertEqual(str(data,'utf-8'),'22')
