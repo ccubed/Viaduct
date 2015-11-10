@@ -16,4 +16,4 @@ notifications:
         on_start: never
 after_success:
     - codecov
-script: python -m unittest -v unitTests.StoneworkUnits
+script: coverage run -m unittest -v unitTests.StoneworkUnits
