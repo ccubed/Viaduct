@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ccubed/Viaduct.svg?branch=master)](https://travis-ci.org/ccubed/Viaduct)
 [![docs](https://readthedocs.org/projects/viaduct/badge/?version=latest)](http://viaduct.rtfd.org)
+[![Join the chat at https://gitter.im/ccubed/Viaduct](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ccubed/Viaduct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # Viaduct
 Viaduct is a Mu server that is meant to bridge the gap between old and new by providing interfaces to the old and new at the same time.
 
