@@ -74,9 +74,9 @@ class WebUnits(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
-        self.server = Webserver(Stonework())
-        self.instance = pywsgi.WSGIServer(('0.0.0.0',8443), self.server.responseHandler)
-        self.instance.start()
+        cls.server = Webserver(Stonework())
+        cls.instance = pywsgi.WSGIServer(('0.0.0.0',8443), self.server.responseHandler)
+        cls.instance.start()
         
     def test_apiTest(self):
         value = redis.StrictRedis(host='localhost',port=6379,db=8)
