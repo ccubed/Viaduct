@@ -61,13 +61,13 @@ class StoneworkUnits(unittest.TestCase):
         self.Stoneref.redisdump()
         
     def test_autoExpire2(self):
-        self.Stoneref.addhash(1025, 1, 2)
+        self.Stoneref.addhash(1025, {'test': 1}, 2)
     
     def test_autoExpire11(self):
-        self.Stoneref.addhash(1026, 1, 11)
+        self.Stoneref.addhash(1026, {'test': 1}, 11)
         
     def test_autoExpire15(self):
-        self.Stoneref.addhash(1027, 1, 15)
+        self.Stoneref.addhash(1027, {'test': 1}, 15)
 
 class WebUnits(unittest.TestCase):
     
