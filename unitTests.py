@@ -1,14 +1,14 @@
 # Unit Tests
 
 import unittest
-from Stonework import *
+from Backend import *
 import simplejson as json
 
 class StoneworkUnits(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.Stoneref = StoneworkC()
+        cls.Stoneref = Stonework()
 
     def test_badDbHash(self):
         self.assertEqual(self.Stoneref.addhash(1024, {'Test': 'True'}, 22), 0)
