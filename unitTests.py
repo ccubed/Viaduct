@@ -55,7 +55,3 @@ class StoneworkUnits(unittest.TestCase):
 
     def test_dump(self):
         self.Stoneref.redisdump()
-
-
-if __name__ == '__main__':
-    unittest.main()
