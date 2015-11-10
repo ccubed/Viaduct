@@ -78,7 +78,7 @@ class WebUnits(unittest.TestCase):
         self.instance = pywsgi.WSGIServer(('0.0.0.0',8443), self.server.responseHandler)
         self.instance.start()
         
-    def apiTest(self):
+    def test_apiTest(self):
         value = redis.StrictRedis(host='localhost',port=6379,db=8)
         value.set('test',22)
         connection = socket.create_conection(('127.0.0.1',8443))
