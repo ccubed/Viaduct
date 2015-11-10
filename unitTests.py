@@ -75,7 +75,7 @@ class WebUnits(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.server = Webserver(Stonework())
-        cls.instance = pywsgi.WSGIServer(('0.0.0.0',8443), self.server.responseHandler)
+        cls.instance = pywsgi.WSGIServer(('0.0.0.0',8443), cls.server.responseHandler)
         cls.instance.start()
         
     def test_apiTest(self):
