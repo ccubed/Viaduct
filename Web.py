@@ -8,30 +8,34 @@ class Webserver:
     def __init__(self, x):
         self.stoneref = x
                 
-    def responseHandler(self, env, start_response):
-        if env['PATH_INFO'].contains('api'):
-            response = self.apiRouter(env['PATH_INFO'])
+    def responsehandler(self, env, start_response):
+        if 'api' in env['PATH_INFO']:
+            response = self.apirouter(env['PATH_INFO'])
         else:
-            response = self.httpRouter(env['PATH_INFO'])
+            response = self.httprouter(env['PATH_INFO'])
         if response == '404':
             start_response('404 Not Found',[('Content-Type','text/html')])
             return [b'<h1>Not Found</h1>']
         else:
-            start_response('200 Ok',[('Content-Type','text/html')])
-            return response
+            if 'api' in env['PATH_INFO']:
+                start_response('200 Ok', [('Content-Type', 'text/json')])
+                return [str.encode(response)]
+            else:
+                start_response('200 Ok', [('Content-Type', 'text/html')])
+                return response
             
-    def apiRouter(self, path):
+    def apirouter(self, path):
         parts = path.split('/')
         if parts[2] == 'pair':
-            temp = self.stoneref.getpair(parts[3],8)
-            if temp == 'Error':
-                return json.dumps({'Result': 'Error', 'Details': 'There are only 15 DBs'})
+            temp = self.stoneref.getpair(parts[3], 8)
+            if 'Error' in temp:
+                return json.dumps({'Result': 'Error', 'Details': temp.split('-')[1].strip()})
             else:
-                return json.dumps({'Result': 'Success', 'Value': temp})
+                return json.dumps({'Result': 'Success', 'Details': temp})
         else:
             return '404'
                 
-    def httpRouter(self, path):
+    def httprouter(self, path):
         if path == '/':
             return [b'<h1>Hello World</h1>']
         else:

@@ -75,14 +75,14 @@ class WebUnits(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.server = Webserver(Stonework())
-        cls.instance = pywsgi.WSGIServer(('0.0.0.0',8443), cls.server.responseHandler)
+        cls.instance = pywsgi.WSGIServer(('localhost', 8443), cls.server.responsehandler)
         cls.instance.start()
         
     def test_apiTest(self):
         value = redis.StrictRedis(host='localhost',port=6379,db=8)
         value.set('test',22)
         connection = socket.create_connection(('127.0.0.1',8443))
-        connection.sendall('GET /api/pair/test')
+        connection.sendall(b'GET http://127.0.0.1:8443/api/pair/test')
         data = connection.recv(4096)
         value.expire('test',8)
-        assertEqual(str(data,'utf-8'),'22')
+        assertTrue('22' in data)

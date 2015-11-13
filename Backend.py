@@ -69,9 +69,12 @@ class Stonework:
     # Get the value for a key and delete the key. Remember, temporary.
     def getpair(self, key, db):
         if 15 >= db >= 0:
-            return str(self.rc[db][2].get(key), 'utf-8')
+            try:
+                return str(self.rc[db][2].get(key), 'utf-8')
+            except:
+                return 'Error - Key not found'
         else:
-            return 'Error'
+            return 'Error - Only 15 DBs'
 
     # Dump redis to disk. This is an asynchronous task.
     def redisdump(self):
