@@ -23,9 +23,9 @@ Viaduct is using the following libraries to get these things to work together.
 * Gevent (http://www.gevent.org)
 * Redis (http://redis.io/)
 * Redis-py (https://github.com/andymccurdy/redis-py)
-* Telnetsrv (https://pypi.python.org/pypi/telnetsrv/0.4)
 * SimpleJson (https://github.com/simplejson/simplejson)
 * Cryptography (https://cryptography.io/en/latest/)
+* Flask (http://flask.pocoo.org/)
 
 # So how does it work together
 

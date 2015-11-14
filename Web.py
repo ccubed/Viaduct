@@ -1,41 +1,24 @@
-# Web Server
+from flask import *
 
-import simplejson as json
+from Backend import *
+
+app = Flask(__name__)
 
 
-class Webserver:
-    def __init__(self, x):
-        self.stoneref = x
+@app.route('/')
+def root():
+    return '<h1>Hello World!</h1>'
 
-    def responsehandler(self, env, start_response):
-        if 'api' in env['PATH_INFO']:
-            response = self.apirouter(env['PATH_INFO'])
-        else:
-            response = self.httprouter(env['PATH_INFO'])
-        if response == '404':
-            start_response('404 Not Found', [('Content-Type', 'text/html')])
-            return [b'<h1>Not Found</h1>']
-        else:
-            if 'api' in env['PATH_INFO']:
-                start_response('200 Ok', [('Content-Type', 'text/json')])
-                return [str.encode(response)]
-            else:
-                start_response('200 Ok', [('Content-Type', 'text/html')])
-                return response
 
-    def apirouter(self, path):
-        parts = path.split('/')
-        if parts[2] == 'pair':
-            temp = self.stoneref.getpair(parts[3], 8)
-            if 'Error' in temp:
-                return json.dumps({'Result': 'Error', 'Details': temp.split('-')[1].strip()})
-            else:
-                return json.dumps({'Result': 'Success', 'Details': temp})
-        else:
-            return '404'
+@app.route('/api/pair/<key>')
+def api_getkey(key):
+    temp = getpair(key, 8)
+    if 'Error' in temp:
+        return json.dumps({'Result': 'Error', 'Details': temp.split('-')[1].strip()})
+    else:
+        return json.dumps({'Result': 'Success', 'Details': temp})
 
-    def httprouter(self, path):
-        if path == '/':
-            return [b'<h1>Hello World</h1>']
-        else:
-            return '404'
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return '<h1>404 Not Found</h1>', 404

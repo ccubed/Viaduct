@@ -2,6 +2,8 @@ Contents:
 
 .. toctree::
    Backend
+      Web
+      API
    :maxdepth: 2
 
 Indices and tables
