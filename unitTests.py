@@ -2,14 +2,9 @@
 
 import unittest
 from Backend import *
-import simplejson as json
-from Web import *
-from gevent import pywsgi
-from gevent import socket
-import redis
+
 
 class StoneworkUnits(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         cls.Stoneref = Stonework()
@@ -59,13 +54,12 @@ class StoneworkUnits(unittest.TestCase):
 
     def test_dump(self):
         self.Stoneref.redisdump()
-        
+
     def test_autoExpire2(self):
         self.Stoneref.addhash(1025, {'test': 1}, 2)
-    
+
     def test_autoExpire11(self):
         self.Stoneref.addhash(1026, {'test': 1}, 11)
-        
-    #TODO: Figure out why this fails.
-    #def test_autoExpire15(self):
-    #    self.Stoneref.addhash(1027, {'test': 1}, 15)
+
+    def test_autoExpire15(self):
+        self.Stoneref.addhash(1027, {'test': 1}, 15)

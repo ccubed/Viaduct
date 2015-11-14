@@ -1,12 +1,13 @@
 # Handles our redis interactions so we can control thread safe interoperability.
 
-import redis, simplejson as json
+import redis
+import simplejson as json
 
 
 class Stonework:
     def __init__(self):
         self.rc = []
-        for i in range(15):
+        for i in range(16):
             tempcp = redis.ConnectionPool(host='localhost', port=6379, db=i)
             tempcpr = redis.Redis(connection_pool=tempcp)
             self.rc.append([tempcp, tempcpr, redis.StrictRedis(host='localhost', port=6379, db=i)])
@@ -47,7 +48,7 @@ class Stonework:
                 if data == 'all':
                     return json.dumps(self.rc[db][2].hgetall(hashid))
                 else:
-                    return json.dumps(str(self.rc[db][2].hget(hashid,data), 'utf-8'))
+                    return json.dumps(str(self.rc[db][2].hget(hashid, data), 'utf-8'))
             elif return_format == 'python':
                 if data == 'all':
                     return self.rc[db][2].hgetall(hashid)
@@ -69,6 +70,7 @@ class Stonework:
     # Get the value for a key and delete the key. Remember, temporary.
     def getpair(self, key, db):
         if 15 >= db >= 0:
+            # noinspection PyBroadException
             try:
                 return str(self.rc[db][2].get(key), 'utf-8')
             except:
@@ -84,7 +86,7 @@ class Stonework:
     # Kill a pair or hash
     def killkey(self, key, db):
         if 15 >= db >= 0:
-            self.rc[db][2].expire(key,1)
+            self.rc[db][2].expire(key, 1)
             return 1
         else:
             return 0
