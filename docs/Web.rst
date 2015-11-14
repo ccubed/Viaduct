@@ -5,10 +5,12 @@ The Web Module is responsible for both a website made possible using the templat
 
 Website Portion
 ===============
-    ..py:method root
-    Returns the document root of the website portion of the web module.
+    .. py:method:: root
 
-    ..py:method page_not_found
+    Returns the document root of the website portion of the web module
+
+    .. py:method:: page_not_found
+
     Handles 404 error
 
 API
@@ -17,7 +19,8 @@ API
 The API follows normal conventions of RESTful apis and returns all its data in JSON format. You can find details on that below.
 The documentation here is only about the python functions in Web.py. For information on the API look at the :doc:`API` documentation.
 
-    ..py:getpair(key)
+    .. py:method:: getpair(key)
+
     Return the value of Key in DB 8 of Redis. This is a testing function.
 
 Adding New Routes
