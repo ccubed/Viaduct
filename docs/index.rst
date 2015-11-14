@@ -2,9 +2,9 @@ Contents:
 
 .. toctree::
    Backend
-      Web
-      API
-   :maxdepth: 2
+   Web
+   API
+   :maxdepth: 3
 
 Indices and tables
 ==================
