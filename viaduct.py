@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from gevent import pywsgi
-
-from Web import app
+from Web.__init__ import app
 
 if __name__ != '__main__':
     print("Sorry, can't be run as a submodule.")

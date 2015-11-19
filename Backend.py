@@ -14,9 +14,6 @@ def addhash(hashid, data, db):
             if db == 2:
                 # Comms are only saved for 48 hours
                 rc.expire(hashid, 172800)
-            elif 10 <= db < 15:
-                # The log DBs keep log entries for 4 days
-                rc.expire(hashid, 345600)
             elif db == 15:
                 # The dbus keeps messages for 1 hour
                 rc.expire(hashid, 3600)
