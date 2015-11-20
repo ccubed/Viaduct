@@ -1,10 +1,8 @@
-Contents:
-
 .. toctree::
+   API
    Backend
    Web
-   API
-   :maxdepth: 3
+   :caption: Table of Contents
 
 Indices and tables
 ==================
@@ -24,8 +22,10 @@ Features
 Running
 =======
 
-Running is only for testing right now, but it runs the web server end points right now!
+Running is only for testing right now, but it runs the web server end points!
+
 You can run the web server by typing python viaduct.py and then pointing your browser to localhost:8443.
+
 The API end points also work! (Try localhost:8443/api/game/who)
 
 Contribute

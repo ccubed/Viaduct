@@ -1,5 +1,5 @@
-Stonework Class
-===============
+Backend
+=======
 
 .. py:module:: Backend
 

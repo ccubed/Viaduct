@@ -1,30 +1,27 @@
 Web Module
 ==========
-The Web Module is built using Flask. As such it is easy to define routes for the API, code in responses and utilize elements of werkzeug and jinja2.
-The Web Module is responsible for both a website made possible using the template syntax of jinja2 and the easy routing of flask and for an api that returns data to clients that choose to interact with the game in that manner.
+The Web Module is built using Flask blueprints. You'll find the structure is functional. The API is in API and the regular website is in Home.
+Each one is assigned to a blueprint and the module is loaded as a single app in __init__ which is then pulled in by viaduct's main module.
 
-Website Portion
-===============
-    .. py:method:: root
+For information on the API, please see :doc:`API`.
 
-    Returns the document root of the website portion of the web module
+Website Routes
+==============
+This will document all current Flask routes.
 
-    .. py:method:: page_not_found
+.. http:get:: /
 
-    Handles 404 error
+   Root of the server.
 
-API
-===
+   :statuscode 200: All good.
+   :statuscode 302: You should run away, this isn't us.
+   :statuscode 404: We're not up for some reason.
+   :statuscode 503: Maintenance mode has been turned on.
 
-The API follows normal conventions of RESTful apis and returns all its data in JSON format. You can find details on that below.
-The documentation here is only about the python functions in Web.py. For information on the API look at the :doc:`API` documentation.
 
-    .. py:method:: getpair(key)
+Adding Routes
+=============
+This should probably go somewhere else - note to self.
 
-    Return the value of Key in DB 8 of Redis. This is a testing function.
-
-Adding New Routes
-=================
-To add a new route, follow the standard flask process. This is wrapped in gevent so keep that in mind, but really that shouldn't matter much.
-To add a new API route, just make the route response to the location of your API and define your functions with the passed parameters.
-Since we're using Flask, you have access to all of those constructs.
+Adding new routes follows the standard flask procedure. Go to API or Home, open views and add routes to the blueprints. As the blueprints are automatically combined and loaded for you, nothing else is required.
+You can make your own blueprints by creating a new folder and a new views.py. Make sure you then add your blueprint to __init__.py and register that blueprint with the app so viaduct can import it.
