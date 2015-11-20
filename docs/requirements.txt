@@ -1,1 +1,1 @@
-pip install sphinxcontrib-httpdomain>=1.5.0
+sphinxcontrib-httpdomain~=1.5.0
