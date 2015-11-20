@@ -36,6 +36,18 @@ Contribute
 - Travis CI: https://travis-ci.org/ccubed/Viaduct
 - Gitter: https://gitter.im/ccubed/Viaduct
 
+Technologies in Use
+===================
+* Python 3.5
+* Greenlet
+* Gevent
+* Redis
+* Redis-py
+* SimpleJson
+* Flask
+* Sphinx
+* Sphinx HTTPDomain
+
 License
 =======
 
