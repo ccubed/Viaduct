@@ -1,0 +1,2 @@
+pip install httpdomain
+pip install sphinxcontrib.httpdomain
