@@ -19,6 +19,21 @@ def api_who():
     return 'Who is on'
 
 
+@api.route('/game/move/<direction>')
+def move(direction):
+    return 'Move player direction'
+
+
+@api.route('/game/say/<text>')
+def say(text):
+    return 'Say something'
+
+
+@api.route('/game/pose/')
+def pose():
+    return 'Process a pose'
+
+
 # Comms
 @api.route('/comms/channels')
 def api_list_channels():
@@ -45,7 +60,7 @@ def api_leave_channel(channel):
     return 'Leave a channel'
 
 
-# Mail
+# Mails
 @api.route('/mails')
 def api_list_mails():
     return 'List mails'
@@ -61,7 +76,7 @@ def api_send_mail(to, title, message):
     return 'Send a mail to someone'
 
 
-# API Keys
+# Key (API Keys)
 @api.route('/key/<permissions>')
 def get_key(permissions):
     return 'Get a one time password'
@@ -80,22 +95,6 @@ def deactivate_key():
 @api.route('/key/list')
 def list_keys():
     return 'List of API Keys'
-
-
-# Game Commands
-@api.route('/game/move/<dir>')
-def move(dir):
-    return 'Move player direction'
-
-
-@api.route('/game/say/<text>')
-def say(text):
-    return 'Say something'
-
-
-@api.route('/game/pose/<text>')
-def pose(text):
-    return 'Process a pose'
 
 
 # Streams

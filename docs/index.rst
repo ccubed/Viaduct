@@ -19,12 +19,14 @@ Features
 - Redis backend
 - Web Server
 - RESTful API
-- OOB Channel on separate port
+- More coming soon...
 
 Running
 =======
 
-Too early for that.
+Running is only for testing right now, but it runs the web server end points right now!
+You can run the web server by typing python viaduct.py and then pointing your browser to localhost:8443.
+The API end points also work! (Try localhost:8443/api/game/who)
 
 Contribute
 ==========

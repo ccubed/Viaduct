@@ -1,47 +1,18 @@
 [![Build Status](https://travis-ci.org/ccubed/Viaduct.svg?branch=master)](https://travis-ci.org/ccubed/Viaduct)
 [![docs](https://readthedocs.org/projects/viaduct/badge/?version=latest)](http://viaduct.rtfd.org)
 [![Join the chat at https://gitter.im/ccubed/Viaduct](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ccubed/Viaduct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # Viaduct
-Viaduct is a Mu server that is meant to bridge the gap between old and new by providing interfaces to the old and new at the same time.
+Viaduct is a new way to make Mu games all in Python with a multi-natured stack that is run on a backend that is disconnected from that same stack.
+Each connection type is a service upon which the game is built. The game however doesn't actually exist, which sounds trippy, but allows developers and game makers to design free form clients that work however they want.
+Viaduct is at its core a connection manager with an API focused on a Mu type game which uses Redis as an information store and dbus.
 
-It does this by running the old and new under a single point of entry and using a unified message dispatcher to communicate changes across all the channels.
+# License
+I believe in the MIT license. It's tried, true and gets the point across without being too wordy. It boils down to: Go ahead, use it, just remember to mention me somewhere.
 
-Viaduct is many things at once and nothing specific at once. It changes the way everything works all at once. It's all of these things:
+# Contributing
+Hell yeah you can contribute. Get in there and open issues, suggestions, talk to me about features and where you want development to go. Help me code even!
 
-* A telnet server
-* A web server
-* Real OOB Communication
-* A Restful API
-* A new kind of Mu game
-
-# So what's behind all this
-
-Viaduct is using the following libraries to get these things to work together.
-
-* Python 3.5 (https://www.python.org/)
-* Greenlet (https://github.com/python-greenlet/greenlet)
-* Gevent (http://www.gevent.org)
-* Redis (http://redis.io/)
-* Redis-py (https://github.com/andymccurdy/redis-py)
-* SimpleJson (https://github.com/simplejson/simplejson)
-* Cryptography (https://cryptography.io/en/latest/)
-* Flask (http://flask.pocoo.org/)
-
-# So how does it work together
-
-Unfortunately, for all the new the mu client remains a strong force in the mu game world. They're even mentioned in the github documentation for Telnetlib3. This isn't likely change, but what is changing is the desire for something new. Anything new needs to be able to seamlessly integrate with the old. The thought process then has to begin there. Where do we go then?
-
-First, you support telnet. There's no real reason to do this. It's not like a Mu game needs to support telnet anymore. Redis (Or even Mongodb or any database) could be used to serve an entire game through a browser with no telnet and only javascript. However, the old school faction is pretty big.
-
-Second, you break telnet down to just telnet. Time to stop thinking about it as a Mu server and start thinking about it as just a telnet protocol connecting to a type of server. Then you find a way to make the telnet integrate with everything else.
-
-Third, you use redis as a message dispatcher, because it's actually already made for that and does surprisingly well.
-
-Fourth, Profit.
-
-So basically, you can run a server that accepts connections from telnet clients, a web client, a mobile client, someone using the rest api or someone using the OOB channel to make their own client and they can all communicate because of Redis being the basis for that message dispatching. 
-
-# So how does it game
-
-Since everything is given an ID, the information on a Mu server is naturally suited to Hashes. Lots and Lots of hashes. That's a simplification. The hardest negotiation between the platforms is color. Telnet uses special control codes. The web uses another set. Everything else is just text. Formatting is universal. A space is a space is a space. (Kill the tabs.)
-
+# Documentation
+Sphinx is great isn't it. See above for the Read the docs link.
+Eventually i'll throw in some apidoc in there too.
