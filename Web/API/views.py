@@ -1,17 +1,19 @@
-from flask import Blueprint
+from flask import *
+from Backend import *
 
 api = Blueprint('api', __name__, template_folder='templates', static_folder='static')
 
 
 # API Routes
 # Players
-@api.route('/players/create/<name>/<password>')
-def api_create_player(name, password):
-    if len(password) < 6:
-        return json.dumps({'Result': 'Error', 'Details': 'Password must be at least 6 characters.'})
+@api.route('/players/create', methods=['POST'])
+def api_create_player():
+    if 'name' in request.form and 'password' in request.form:
+        # Stuff
     else:
-        return json.dumps({'Result': 'Success', 'Details': 'Created Character ' + name})
-
+        resp = make_response(json.dumps({'Status': 'False', 'Details': 'Did not pass name or password in POST data.'}), 400)
+        resp.headers['Content-Type'] = 'application/json'
+        return resp
 
 # Game
 @api.route('/game/who')
@@ -50,8 +52,8 @@ def api_get_channel_messages(channel):
     return 'Stored messages for channel'
 
 
-@api.route('/comms/send/<channel>/<message>')
-def api_send_channel_message(channel, message):
+@api.route('/comms/send')
+def api_send_channel_message(channel):
     return 'Send a message to a channel'
 
 
@@ -66,33 +68,48 @@ def api_list_mails():
     return 'List mails'
 
 
-@api.route('/mail/<number>')
+@api.route('/mails/<number>')
 def api_get_mail(number):
     return 'Get contents of a specified mail'
 
 
-@api.route('/mail/send/<to>/<title>/<message>')
+@api.route('/mails/send')
 def api_send_mail(to, title, message):
     return 'Send a mail to someone'
 
 
-# Key (API Keys)
-@api.route('/key/<permissions>')
+@api.route('/mails/delete/<number>')
+def api_delete_mail(number):
+    return 'Delete a mail'
+
+
+@api.route('/mails/reply/')
+def api_reply_mail():
+    return 'Reply to a mail'
+
+
+@api.route('/mails/forward/')
+def api_forward_mail():
+    return 'Forward a mail'
+
+
+# Keys (API Keys)
+@api.route('/keys/<permissions>')
 def get_key(permissions):
     return 'Get a one time password'
 
 
-@api.route('/key/activate')
+@api.route('/keys/activate')
 def activate_key():
     return 'Activate an API key with a OTPW'
 
 
-@api.route('/key/deactivate')
+@api.route('/keys/deactivate')
 def deactivate_key():
     return 'Deactivate an API key'
 
 
-@api.route('/key/list')
+@api.route('/keys/list')
 def list_keys():
     return 'List of API Keys'
 
